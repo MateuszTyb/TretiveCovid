@@ -9,12 +9,12 @@ let parameters = {
     simulationLengthVar: 0,
 }
 
+
 const form = document.querySelector(".simulationParameters-form");
 form.addEventListener("submit", handleSubmit);
 function handleSubmit(event) {
     event.preventDefault()
-    simulator()
-    chartCreatror();
+
 
 
     const {
@@ -31,23 +31,35 @@ function handleSubmit(event) {
     parameters.simulationLengthVar = Number(simulationLength.value);
 
     event.currentTarget.reset();
-}
+    popref()
+    simulator()
 
+}
 
 
 let population = [{
     day: 0,
-    infected: parameters.firstInfectedVar,
-    sensible: parameters.populationSizeVar - parameters.firstInfectedVar,
+    infected: 0,
+    sensible: 0,
     dead: 0,
     resistant: 0,
-    livePopulation: parameters.populationSizeVar,
+    livePopulation: 0,
     newInfected: 0,
     newDeadbyDay: 0,
-}
+}];
 
 
-];
+function popref() {
+    population.day = 0
+    population.infected = Number(parameters.firstInfectedVar)
+    population.sensible = Number(parameters.populationSizeVar - parameters.firstInfectedVar)
+    population.dead = 0
+    population.resistant = 0
+    population.livePopulation = Number(parameters.populationSizeVar)
+    population.newInfected = 0
+    population.newDeadbyDay = 0
+};
+popref()
 
 
 
@@ -64,6 +76,8 @@ const datapointsNewInfection = [];
 function simulator() {
     for (let i = 1; i <= parameters.simulationLengthVar; i++) {
 
+        console.log(population)
+
         let deadTime = 0;
         let recoveryTime = 0;
 
@@ -75,7 +89,11 @@ function simulator() {
             deadTime = population[i - parameters.deadTimeFactorVar].newInfected;
         };
 
-        let newDead = deadTime * parameters.mFactor;
+        let newDead = deadTime * parameters.mFactorVar;
+
+        console.log(newDead + "newDead")
+        console.log(parameters.mFactorVar + "mFactorVar")
+
 
         // Warunki dla Wyzdrowienia
 
@@ -87,9 +105,10 @@ function simulator() {
 
         let newResistant = recoveryTime;
 
+        console.log(newResistant + "newResistant")
+        console.log(parameters.recoveryTimeFactorVar + "parameters.recoveryTimeFactorVar")
 
-
-        newInfected = population[i - 1].infected * parameters.rFactorVar - population[i - 1].infected;
+        let newInfected = population[i - 1].infected * parameters.rFactorVar - population[i - 1].infected;
 
         if (newInfected > population[i - 1].sensible) {
             newInfected = population[i - 1].sensible;
@@ -98,8 +117,9 @@ function simulator() {
         else {
 
         };
-
-
+        console.log(population.infected)
+        console.log(newInfected + "newInfected")
+        console.log(parameters.rFactorVar + "parameters.rFactorVar")
 
         const simulation = {
             day: i,
@@ -131,8 +151,6 @@ function simulator() {
         datapointsNewDead.push(Math.round(simulation.newDeadbyDay));
         datapointsNewInfection.push(Math.round(simulation.newInfected));
 
-        console.log(simulation)
-
     };
 }
 
@@ -144,7 +162,7 @@ const CHART_COLORS = {
     green: 'rgb(75, 192, 192)',
     blue: 'rgb(54, 162, 235)',
     purple: 'rgb(153, 102, 255)',
-    grey: 'rgb(201, 203, 207)', black: 'rgb(0, 0, 0)'
+    grey: 'rgb(100, 100, 100)', white: 'rgb(255, 255, 255)'
 };
 
 
@@ -205,7 +223,7 @@ const data = {
         {
             label: 'Nowi Zmarli',
             data: datapointsNewDead,
-            borderColor: CHART_COLORS.black,
+            borderColor: CHART_COLORS.white,
             fill: false,
             cubicInterpolationMode: 'monotone',
             tension: 0.8,
