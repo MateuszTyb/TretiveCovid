@@ -50,7 +50,7 @@ const datapointsNewInfection = [];
 function simulator() {
     for (let i = 1; i <= parameters.simulationLengthVar; i++) {
 
-        let population = [{
+        const population = [{
             day: 0,
             infected: parameters.firstInfectedVar,
             sensible: parameters.populationSizeVar - parameters.firstInfectedVar,
@@ -61,7 +61,6 @@ function simulator() {
             newDeadbyDay: 0,
         }];
 
-        console.log(population[0])
 
         let deadTime = 0;
         let recoveryTime = 0;
