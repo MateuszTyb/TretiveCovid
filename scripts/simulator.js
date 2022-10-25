@@ -31,35 +31,9 @@ function handleSubmit(event) {
     parameters.simulationLengthVar = Number(simulationLength.value);
 
     event.currentTarget.reset();
-    popref()
     simulator()
 
 }
-
-
-let population = [{
-    day: 0,
-    infected: 0,
-    sensible: 0,
-    dead: 0,
-    resistant: 0,
-    livePopulation: 0,
-    newInfected: 0,
-    newDeadbyDay: 0,
-}];
-
-
-function popref() {
-    population.day = 0
-    population.infected = Number(parameters.firstInfectedVar)
-    population.sensible = Number(parameters.populationSizeVar - parameters.firstInfectedVar)
-    population.dead = 0
-    population.resistant = 0
-    population.livePopulation = Number(parameters.populationSizeVar)
-    population.newInfected = 0
-    population.newDeadbyDay = 0
-};
-popref()
 
 
 
@@ -76,7 +50,18 @@ const datapointsNewInfection = [];
 function simulator() {
     for (let i = 1; i <= parameters.simulationLengthVar; i++) {
 
-        console.log(population)
+        let population = [{
+            day: 0,
+            infected: parameters.firstInfectedVar,
+            sensible: parameters.populationSizeVar - parameters.firstInfectedVar,
+            dead: 0,
+            resistant: 0,
+            livePopulation: parameters.populationSizeVar,
+            newInfected: 0,
+            newDeadbyDay: 0,
+        }];
+
+        console.log(population[0])
 
         let deadTime = 0;
         let recoveryTime = 0;
@@ -91,9 +76,6 @@ function simulator() {
 
         let newDead = deadTime * parameters.mFactorVar;
 
-        console.log(newDead + "newDead")
-        console.log(parameters.mFactorVar + "mFactorVar")
-
 
         // Warunki dla Wyzdrowienia
 
@@ -105,9 +87,6 @@ function simulator() {
 
         let newResistant = recoveryTime;
 
-        console.log(newResistant + "newResistant")
-        console.log(parameters.recoveryTimeFactorVar + "parameters.recoveryTimeFactorVar")
-
         let newInfected = population[i - 1].infected * parameters.rFactorVar - population[i - 1].infected;
 
         if (newInfected > population[i - 1].sensible) {
@@ -117,9 +96,7 @@ function simulator() {
         else {
 
         };
-        console.log(population.infected)
-        console.log(newInfected + "newInfected")
-        console.log(parameters.rFactorVar + "parameters.rFactorVar")
+
 
         const simulation = {
             day: i,
