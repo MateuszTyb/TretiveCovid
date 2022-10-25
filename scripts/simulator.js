@@ -9,13 +9,22 @@ let parameters = {
     simulationLengthVar: 0,
 }
 
+const population = [{
+    day: 0,
+    infected: parameters.firstInfectedVar,
+    sensible: parameters.populationSizeVar - parameters.firstInfectedVar,
+    dead: 0,
+    resistant: 0,
+    livePopulation: parameters.populationSizeVar,
+    newInfected: 0,
+    newDeadbyDay: 0,
+}];
+
 
 const form = document.querySelector(".simulationParameters-form");
 form.addEventListener("submit", handleSubmit);
 function handleSubmit(event) {
     event.preventDefault()
-
-
 
     const {
         elements: { simulationName, populationSize, firstInfected, rFactor, mFactor, recoveryTimeFactor, deadTimeFactor, simulationLength }
@@ -30,10 +39,20 @@ function handleSubmit(event) {
     parameters.deadTimeFactorVar = Number(deadTimeFactor.value);
     parameters.simulationLengthVar = Number(simulationLength.value);
 
+
+    population.infected = parameters.firstInfectedVar;
+    population.sensible = parameters.populationSizeVar - parameters.firstInfectedVar;
+    population.livePopulation = parameters.populationSizeVar;
+
     event.currentTarget.reset();
     simulator()
 
-}
+};
+
+
+
+
+
 
 
 
@@ -50,16 +69,6 @@ const datapointsNewInfection = [];
 function simulator() {
     for (let i = 1; i <= parameters.simulationLengthVar; i++) {
 
-        const population = [{
-            day: 0,
-            infected: parameters.firstInfectedVar,
-            sensible: parameters.populationSizeVar - parameters.firstInfectedVar,
-            dead: 0,
-            resistant: 0,
-            livePopulation: parameters.populationSizeVar,
-            newInfected: 0,
-            newDeadbyDay: 0,
-        }];
 
 
         let deadTime = 0;
