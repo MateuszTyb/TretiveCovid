@@ -1,0 +1,111 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+p,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $main-color;
+  display: flex;
+  margin: 0px auto;
+  max-width: 1280px;
+  display: flex;
+  justify-content: center;
+  align-content: space-around;
+  flex-direction: row;
+  overflow-x: hidden;
+
+}
+
+input {
+  border-radius: 5px;
+  border-color: $secondary-color ;
+  border-width: 3px;
+  border-style: solid;
+  float: right;
+  width: 100%;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: $details-color ;
+  }
+
+}
+
+label {
+  color: $main-font-color;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.simulationParameters {
+  color: $main-font-color;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 10px;
+  color: $main-font-color;
+  width: 30%;
+
+  &-form {
+    justify-content: space-between;
+  }
+
+
+
+  &-header {
+    padding-bottom: 10px
+  }
+}
+
+;
+
+.formBtn {
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  margin: 10px 0px 10px 10px;
+
+  &__sub {
+
+    color: $secondary-font-color;
+    background-color: $secondary-color;
+    box-shadow: 0 0 40px 40px $secondary-color inset, 0 0 0 0 $secondary-color;
+    transition: all 150ms ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $secondary-color;
+    }
+  }
+}
+
+&__reset {
+  background-color: $details-color ;
+  box-shadow: 0 0 40px 40px $details-color inset, 0 0 0 0 $details-color;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $details-color;
+  }
+
+}
