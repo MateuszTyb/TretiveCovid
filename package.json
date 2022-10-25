@@ -3,14 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
-  "homepage": "https://github.com/MateuszTyb/
-TretiveCovid ",
+  "homepage": "https://github.com/MateuszTyb/TretiveCovid ",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /
-TretiveCovid /",
-    "predeploy": "npm run build -- --public-url /
-TretiveCovid /",
+    "build": "parcel build src/*.html --public-url /TretiveCovid /",
+    "predeploy": "npm run build -- --public-url /TretiveCovid /",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
