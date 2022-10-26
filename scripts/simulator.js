@@ -1,3 +1,5 @@
+
+
 let parameters = {
     simulationNameVar: 0,
     populationSizeVar: 0,
@@ -22,6 +24,8 @@ const form = document.querySelector(".simulationParameters-form");
 form.addEventListener("submit", handleSubmit);
 function handleSubmit(event) {
     event.preventDefault()
+
+
 
     datapointsDead = [];
     datapointsPopulation = [];
@@ -150,7 +154,8 @@ function simulator() {
         blue: 'rgb(54, 162, 235)',
         purple: 'rgb(153, 102, 255)',
         grey: 'rgb(100, 100, 100)',
-        white: 'rgb(255, 255, 255)'
+        white: 'rgb(255, 255, 255)',
+        usage: 'rgb(33, 59, 136)',
     };
 
     function chartCreatror() {
@@ -231,8 +236,14 @@ function simulator() {
 
         const config = {
             type: 'line',
+            font: {
+                size: 18,
+                weight: 700,
+            },
+            color: CHART_COLORS.usage,
             data: data,
             options: {
+                color: CHART_COLORS.usage,
                 responsive: true,
                 interaction: {
                     mode: 'index',
@@ -241,24 +252,40 @@ function simulator() {
                 stacked: false,
                 plugins: {
                     title: {
+                        font: {
+                            size: 18,
+                            weight: 700,
+                        },
+                        color: CHART_COLORS.usage,
                         display: true,
-                        text: 'Sybulacja Zagłady Ludzkości'
+                        text: parameters.simulationNameVar
                     }
                 },
                 scales: {
                     y: {
+                        font: {
+                            size: 18,
+                            weight: 700,
+                        },
+
+                        color: CHART_COLORS.usage,
                         type: 'linear',
                         display: true,
                         position: 'left',
                     },
                     y1: {
+                        font: {
+                            size: 18,
+                            weight: 700,
+                        },
+                        color: CHART_COLORS.usage,
                         type: 'linear',
                         display: true,
                         position: 'right',
 
-                        // grid line settings
+
                         grid: {
-                            drawOnChartArea: false, // only want the grid lines for one axis to show up
+                            drawOnChartArea: false,
                         },
                     },
                 }
@@ -267,11 +294,15 @@ function simulator() {
 
 
 
-        const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
+        let lineChart = document.getElementById("myChart").getContext("2d");
+
+        var myChart = new Chart(document.getElementById('myChart'),
+            config);
+
+        ;
     }
+
+
 
     chartCreatror()
 

@@ -21,7 +21,9 @@ html {
 }
 
 body {
-  background-color: rgba(0, 64, 255, 0.2980392157);
+  background: url("/images/back.png");
+  background-repeat: no-repeat;
+  background-size: auto;
   display: flex;
   margin: 0px auto;
   max-width: 1280px;
@@ -42,7 +44,7 @@ input {
   width: 100%;
 }
 input:hover, input:focus, input:active {
-  border-color: #ff0000;
+  border-color: #383b9c;
 }
 
 label {
@@ -54,6 +56,8 @@ label {
 }
 
 .simulationParameters {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 20px 0px;
   color: #04003e;
   display: flex;
   flex-direction: column;
@@ -64,6 +68,7 @@ label {
 }
 .simulationParameters-form {
   justify-content: space-between;
+  opacity: 0, 7;
 }
 .simulationParameters-header {
   padding-bottom: 10px;
@@ -96,34 +101,42 @@ label {
   border-radius: 5px;
   border: none;
   margin: 10px 0px 10px 10px;
-  background-color: #ff0000;
-  box-shadow: 0 0 40px 40px #ff0000 inset, 0 0 0 0 #ff0000;
+  background-color: #383b9c;
+  box-shadow: 0 0 40px 40px #383b9c inset, 0 0 0 0 #383b9c;
   transition: all 150ms ease-in-out;
 }
 .formBtn__reset:hover {
-  box-shadow: 0 0 10px 0 #ff0000 inset, 0 0 10px 4px #ff0000;
+  box-shadow: 0 0 10px 0 #383b9c inset, 0 0 10px 4px #383b9c;
 }
 
 .parameters {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 .parameters div {
+  background-color: rgba(255, 255, 255, 0.7);
   min-width: 100px;
   min-height: 100px;
   max-width: 200px;
   max-height: 200px;
   padding: 10px;
-  margin: 0 auto;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   color: #545454;
   border-radius: 10px;
-  border: solid #545454;
   text-align: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   font-weight: 600;
+}
+
+#myChart {
+  border-radius: 0px 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #04003e;
+  margin: 10px;
+  height: auto;
 }/*# sourceMappingURL=main.css.map */
