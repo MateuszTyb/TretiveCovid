@@ -21,11 +21,12 @@ html {
 }
 
 body {
-  background-color: #000000;
+  background-color: rgba(0, 64, 255, 0.2980392157);
   display: flex;
   margin: 0px auto;
   max-width: 1280px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-content: space-around;
   flex-direction: row;
@@ -45,7 +46,7 @@ input:hover, input:focus, input:active {
 }
 
 label {
-  color: #bcb0b0;
+  color: #04003e;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
@@ -53,12 +54,12 @@ label {
 }
 
 .simulationParameters {
-  color: #bcb0b0;
+  color: #04003e;
   display: flex;
   flex-direction: column;
   padding: 20px;
   margin: 10px;
-  color: #bcb0b0;
+  color: #04003e;
   width: 30%;
 }
 .simulationParameters-form {
@@ -68,7 +69,7 @@ label {
   padding-bottom: 10px;
 }
 
-.formBtn, .formBtn__reset, .formBtn__sub {
+.formBtn {
   padding: 10px;
   font-weight: bold;
   border-radius: 5px;
@@ -76,9 +77,53 @@ label {
   margin: 10px 0px 10px 10px;
 }
 .formBtn__sub {
-  color: #000000;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  margin: 10px 0px 10px 10px;
+  color: #9f9f9f;
   background-color: #545454;
+  box-shadow: 0 0 40px 40px #545454 inset, 0 0 0 0 #545454;
+  transition: all 150ms ease-in-out;
+}
+.formBtn__sub:hover {
+  box-shadow: 0 0 10px 0 #545454 inset, 0 0 10px 4px #545454;
 }
 .formBtn__reset {
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  margin: 10px 0px 10px 10px;
   background-color: #ff0000;
+  box-shadow: 0 0 40px 40px #ff0000 inset, 0 0 0 0 #ff0000;
+  transition: all 150ms ease-in-out;
+}
+.formBtn__reset:hover {
+  box-shadow: 0 0 10px 0 #ff0000 inset, 0 0 10px 4px #ff0000;
+}
+
+.parameters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.parameters div {
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 200px;
+  max-height: 200px;
+  padding: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #545454;
+  border-radius: 10px;
+  border: solid #545454;
+  text-align: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  font-weight: 600;
 }/*# sourceMappingURL=main.css.map */

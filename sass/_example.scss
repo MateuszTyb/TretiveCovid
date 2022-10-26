@@ -26,6 +26,7 @@ body {
   margin: 0px auto;
   max-width: 1280px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-content: space-around;
   flex-direction: row;
@@ -70,6 +71,8 @@ label {
     justify-content: space-between;
   }
 
+  ;
+
 
 
   &-header {
@@ -87,25 +90,60 @@ label {
   margin: 10px 0px 10px 10px;
 
   &__sub {
-
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    margin: 10px 0px 10px 10px;
     color: $secondary-font-color;
     background-color: $secondary-color;
     box-shadow: 0 0 40px 40px $secondary-color inset, 0 0 0 0 $secondary-color;
     transition: all 150ms ease-in-out;
 
     &:hover {
-      box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $secondary-color;
+      box-shadow: 0 0 10px 0 $secondary-color inset, 0 0 10px 4px $secondary-color;
     }
+  }
+
+  &__reset {
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    margin: 10px 0px 10px 10px;
+    background-color: $details-color ;
+    box-shadow: 0 0 40px 40px $details-color inset, 0 0 0 0 $details-color;
+    transition: all 150ms ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 10px 0 $details-color inset, 0 0 10px 4px $details-color;
+    }
+
   }
 }
 
-&__reset {
-  background-color: $details-color ;
-  box-shadow: 0 0 40px 40px $details-color inset, 0 0 0 0 $details-color;
-  transition: all 150ms ease-in-out;
+.parameters {
+  display: flex;
 
-  &:hover {
-    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $details-color;
-  }
+  justify-content: space-between;
+}
 
+.parameters div {
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 200px;
+  max-height: 200px;
+  padding: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $secondary-color;
+  border-radius: 10px;
+  border: solid $secondary-color;
+  text-align: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  font-weight: 600;
 }

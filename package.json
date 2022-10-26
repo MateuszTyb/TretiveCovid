@@ -9,7 +9,6 @@
     "build": "parcel build *.html --public-url /TretiveCovid /",
     "predeploy": "npm run build -- --public-url /TretiveCovid /",
     "deploy": "gh-pages -d dist"
-
   },
   "repository": {
     "type": "git",
@@ -28,6 +27,7 @@
     "sass": "^1.26.9"
   },
   "dependencies": {
+    "ajax": "^0.0.4",
     "axios": "^0.26.1",
     "chart.js": "^3.9.1",
     "install": "^0.13.0",

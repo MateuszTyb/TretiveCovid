@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="sass/main.css" />
   <link rel="icon" type="image/x-icon" href="./images/ico-28.png">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,42 +20,42 @@
     <h1 class="simulationParameters-header">Parametry Symulacji</h1>
     <form class="simulationParameters-form">
 
-      <label class="simulationName__label"> Nazwa Symulacji <p class="simulationName__sub">Twoja Nazwa</p></label>
+      <label class="simulationName__label"> Nazwa Symulacji <p class="simulationName__sub"></p></label>
       <input id="simulationName" type="text" name="simulationName" placeholder="Nazwa symulacji" required /><br></br>
 
 
-      <label class="populationSize__label"> Populacja <p class="populationSize__sub">Populacja początkowa</p></label>
+      <label class="populationSize__label"> Populacja <p class="populationSize__sub"></p></label>
       <input id="populationSize" type="number" name="populationSize" placeholder="Rozmiar Populacji"
         required /><br></br>
 
 
-      <label class="firstInfected__label"> Zakażeni <p class="firstInfected__sub">Pierwsi Zakażeni</p></label>
+      <label class="firstInfected__label"> Zakażeni <p class="firstInfected__sub"></p></label>
       <input id="firstInfected" type="number" name="firstInfected" placeholder="Początkowa liczba osób zarażonych"
         step="1" required /><br></br>
 
 
-      <label class="rFactor__label"> Wskaźnik R <p class="rFactor__sub">Zakaźność</p></label>
+      <label class="rFactor__label"> Wskaźnik R <p class="rFactor__sub"></p></label>
       <input id="rFactor" type="number" name="rFactor" step="0.01" placeholder="Wskaźnik R" required /><br></br>
 
 
-      <label class="mFactor__label"> Wskaźnik M <p class="mFactor__sub">Śmiertelność</p></label>
+      <label class="mFactor__label"> Wskaźnik M <p class="mFactor__sub"></p></label>
       <input id="mFactor" type="number" name="mFactor" step="0.0001" maxvalue=1 placeholder="Wskaźnik umieralności"
         required /><br></br>
 
 
-      <label class="recoveryTimeFactor__label"> Wskaźnik Ti <p class="recoveryTimeFactor__sub">Czas Wyleczenia</p>
+      <label class="recoveryTimeFactor__label"> Wskaźnik Ti <p class="recoveryTimeFactor__sub"></p>
       </label>
       <input id="recoveryTimeFactor" type="number" name="recoveryTimeFactor" step="1" required
         placeholder="Czas do Wyzdrownienia" /><br></br>
 
 
-      <label class="deadTimeFactor__label"> Wskaźnik Tm <p class="deadTimeFactor__sub">Czas Śmierci</p></label>
+      <label class="deadTimeFactor__label"> Wskaźnik Tm <p class="deadTimeFactor__sub"></p></label>
       <input id="deadTimeFactor" type="number" name="deadTimeFactor" step="1" placeholder="Czas do śmierci"
         required /><br></br>
 
 
       <label class="simulationLength__label">
-        Wskaźnik Ts <p class="simulationLength__sub"> Długość Symulacji</p></label>
+        Wskaźnik Ts <p class="simulationLength__sub"></p></label>
       <input id="simulationLength" type="number" name="simulationLength" step="1" placeholder="Długość symulacji"
         required /><br></br>
 
@@ -67,6 +68,28 @@
     </form>
   </div>
   <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+
+  <div class="parameters">
+
+
+    <div class="parameters__dead">
+      <p class="parameters__dead__head">Ilość Zgonów Sumarycznie</p>
+    </div>
+
+
+    <div class="parameters__alive">
+      <p class="parameters__alive__head">Populacja Żywa</p>
+    </div>
+
+    <div class="parameters__deadDay">
+      <p class="parameters__deadDay__head">Dziś zmarło</p>
+
+    </div>
+    <div class="parameters__infection">
+      <p class="parameters_infection__head">Nowe Zakażenia</p>
+
+    </div>
+  </div>
 
   <include src="./partials/form.html"></include>
   <include src="./partials/charts.html"></include>
