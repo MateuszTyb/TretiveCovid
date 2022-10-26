@@ -1,5 +1,3 @@
-
-
 let parameters = {
     simulationNameVar: 0,
     populationSizeVar: 0,
@@ -23,9 +21,6 @@ let datapointsNewInfection = [];
 const form = document.querySelector(".simulationParameters-form");
 form.addEventListener("submit", handleSubmit);
 function handleSubmit(event) {
-    event.preventDefault()
-
-
 
     datapointsDead = [];
     datapointsPopulation = [];
@@ -35,11 +30,6 @@ function handleSubmit(event) {
     datapointsLivePopulation = [];
     datapointsNewDead = [];
     datapointsNewInfection = [];
-
-
-
-
-
 
     const {
         elements: { simulationName, populationSize, firstInfected, rFactor, mFactor, recoveryTimeFactor, deadTimeFactor, simulationLength }
@@ -56,14 +46,8 @@ function handleSubmit(event) {
 
 
     event.currentTarget.reset();
-    simulator()
-
-};
 
 
-
-
-function simulator() {
 
     const population = [{
         day: 0,
@@ -87,6 +71,7 @@ function simulator() {
         if (parameters.deadTimeFactorVar >= i) {
             deadtime = 0;
         } else {
+
             deadTime = population[i - parameters.deadTimeFactorVar].newInfected;
         };
 
@@ -131,7 +116,6 @@ function simulator() {
             simulation.resistant = 0;
         };
         population.push(simulation);
-        console.log(simulation);
 
         datapointsDead.push(Math.round(simulation.dead));
         datapointsPopulation.push(Math.round(simulation.population));
@@ -142,7 +126,7 @@ function simulator() {
         datapointsNewDead.push(Math.round(simulation.newDeadbyDay));
         datapointsNewInfection.push(Math.round(simulation.newInfected));
 
-        console.log(datapointsDead)
+
 
     };
 
@@ -293,15 +277,11 @@ function simulator() {
         };
 
 
-
         let lineChart = document.getElementById("myChart").getContext("2d");
-
-        var myChart = new Chart(document.getElementById('myChart'),
+        const myChart = new Chart(lineChart,
             config);
 
-        ;
     }
-
 
 
     chartCreatror()
@@ -372,4 +352,40 @@ function simulator() {
         .join("");
     simulationLengthAct.insertAdjacentHTML("beforeend", LengthAct);
 
+
+    event.preventDefault()
+
+};
+
+
+const formActual = document.querySelector(".actual__form");
+formActual.addEventListener("submit", actSubmit);
+function actSubmit(eventAct) {
+    eventAct.preventDefault()
+
+
+
+    const {
+        elements: { actual__day }
+    } = eventAct.currentTarget;
+
+    const deadDay = document.querySelector(".parameters__deadDay__head");
+    const deadDayAct = [datapointsNewDead]
+        .map((deadDayAct) => `${deadDayAct[actual__day.value]}`)
+        .join("");
+    deadDay.innerHTML = ` <p class="parameters__deadDay__head">Dziś zmarło</p>`;
+
+    deadDay.insertAdjacentHTML("beforeend", deadDayAct);
+
+    const dayInf = document.querySelector(".parameters_infection__head");
+    const dayInfAct = [datapointsNewInfection]
+        .map((dayInfAct) => `${dayInfAct[actual__day.value]}`)
+        .join("");
+    dayInf.innerHTML = ` <p class="parameters_infection__head">Nowe Zakażenia</p>`;
+    dayInf.insertAdjacentHTML("beforeend", dayInfAct);
+
+
 }
+
+
+

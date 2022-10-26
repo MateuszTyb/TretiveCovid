@@ -39,7 +39,7 @@
 
 
       <label class="mFactor__label"> Wskaźnik M <p class="mFactor__sub"></p></label>
-      <input id="mFactor" type="number" name="mFactor" step="0.0001" maxvalue=1 placeholder="Wskaźnik umieralności"
+      <input id="mFactor" type="number" name="mFactor" step="0.0001" min="0" max="1" placeholder="Wskaźnik umieralności"
         required /><br></br>
 
 
@@ -89,6 +89,18 @@
       <p class="parameters_infection__head">Nowe Zakażenia</p>
 
     </div>
+
+    <div class="parameters__dead">
+      <p class="parameters__dead__head">Wartości z Dnia:</p>
+      <form class="actual__form" name="actual__form">
+        <input id="actual__day" name="actual__day" type="number" value=1>
+        <input id="actual__value" name="actual__value" type="submit" value="Sprawadź dane">
+      </form>
+
+
+    </div>
+
+
   </div>
 
   <include src="./partials/form.html"></include>
